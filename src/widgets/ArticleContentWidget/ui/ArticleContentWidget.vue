@@ -1,7 +1,7 @@
 <template>
-	<CardContainer class="article-content-widget">
-		<ArticleBody :article="article" />
-	</CardContainer>
+  <CardContainer class="article-content-widget">
+    <ArticleBody :article="article" />
+  </CardContainer>
 </template>
 
 <script setup lang="ts">
@@ -10,7 +10,7 @@ import { ArticleBody } from '@/entities/Article'
 import { CardContainer } from '@/shared/ui'
 
 const props = defineProps<{
-	readonly article: Article
+  readonly article: Article
 }>()
 
 const { article } = props
@@ -18,6 +18,6 @@ const { article } = props
 
 <style scoped>
 .article-content-widget {
-	gap: 20px;
+  gap: 20px;
 }
 </style>

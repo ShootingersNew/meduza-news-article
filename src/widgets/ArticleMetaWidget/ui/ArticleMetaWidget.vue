@@ -1,11 +1,11 @@
 <template>
-	<CardContainer class="article-meta-widget">
-		<ArticleMetaInfo :article="article" />
-		<ToolbarContainer>
-			<AudioPlayerButton />
-			<BookmarkButton />
-		</ToolbarContainer>
-	</CardContainer>
+  <CardContainer class="article-meta-widget">
+    <ArticleMetaInfo :article="article" />
+    <ToolbarContainer>
+      <AudioPlayerButton />
+      <BookmarkButton />
+    </ToolbarContainer>
+  </CardContainer>
 </template>
 
 <script setup lang="ts">
@@ -15,7 +15,7 @@ import { AudioPlayerButton, BookmarkButton } from '@/features'
 import { CardContainer, ToolbarContainer } from '@/shared/ui'
 
 const props = defineProps<{
-	readonly article: Article
+  readonly article: Article
 }>()
 
 const { article } = props
@@ -23,6 +23,6 @@ const { article } = props
 
 <style scoped>
 .article-meta-widget {
-	gap: 16px;
+  gap: 16px;
 }
 </style>

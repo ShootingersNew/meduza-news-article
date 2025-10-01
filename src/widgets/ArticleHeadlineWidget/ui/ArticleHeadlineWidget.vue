@@ -1,8 +1,8 @@
 <template>
-	<CardContainer class="article-headline-widget">
-		<ArticleHeadline :article="article" />
-		<AuthorBadge :author="article.author" />
-	</CardContainer>
+  <CardContainer class="article-headline-widget">
+    <ArticleHeadline :article="article" />
+    <AuthorBadge :author="article.author" />
+  </CardContainer>
 </template>
 
 <script setup lang="ts">
@@ -12,7 +12,7 @@ import { AuthorBadge } from '@/entities/Author'
 import { CardContainer } from '@/shared/ui'
 
 const props = defineProps<{
-	readonly article: Article
+  readonly article: Article
 }>()
 
 const { article } = props
@@ -20,6 +20,6 @@ const { article } = props
 
 <style scoped>
 .article-headline-widget {
-	gap: 20px;
+  gap: 20px;
 }
 </style>

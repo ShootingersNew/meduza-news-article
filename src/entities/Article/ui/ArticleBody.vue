@@ -1,9 +1,9 @@
 <template>
-	<div class="article-body">
-		<TypographyText v-for="paragraph in article.content" :key="paragraph">
-			{{ paragraph }}
-		</TypographyText>
-	</div>
+  <div class="article-body">
+    <TypographyText v-for="paragraph in article.content" :key="paragraph">
+      {{ paragraph }}
+    </TypographyText>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +11,7 @@ import type { Article } from '../model/types'
 import { TypographyText } from '@/shared/ui'
 
 const props = defineProps<{
-	readonly article: Article
+  readonly article: Article
 }>()
 
 const { article } = props
@@ -19,9 +19,9 @@ const { article } = props
 
 <style scoped>
 .article-body {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #000;
 }
 </style>

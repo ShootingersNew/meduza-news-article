@@ -1,5 +1,5 @@
 <template>
-	<ArticlePage />
+  <ArticlePage />
 </template>
 
 <script setup lang="ts">
@@ -13,16 +13,16 @@ import en from '@/shared/config/i18n/en'
 import ru from '@/shared/config/i18n/ru'
 
 I18nService.addLocales({
-	en,
-	ru,
+  en,
+  ru,
 })
 </script>
 
 <style>
 body {
-	font-family: 'Roboto', sans-serif;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 </style>
