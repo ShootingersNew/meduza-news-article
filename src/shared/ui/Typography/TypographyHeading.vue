@@ -1,7 +1,7 @@
 <template>
-	<component :is="tag" class="typography-heading palette-color-primary" :class="headingClass">
-		<slot />
-	</component>
+  <component :is="tag" class="typography-heading palette-color-primary" :class="headingClass">
+    <slot />
+  </component>
 </template>
 
 <script setup lang="ts">

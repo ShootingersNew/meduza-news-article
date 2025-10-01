@@ -1,7 +1,7 @@
 <template>
-	<span class="icon palette-bg-primary palette-color-white" :aria-label="name">
-		<slot>{{ computedLabel }}</slot>
-	</span>
+  <span class="icon palette-bg-primary palette-color-white" :aria-label="name">
+    <slot>{{ computedLabel }}</slot>
+  </span>
 </template>
 
 <script setup lang="ts">

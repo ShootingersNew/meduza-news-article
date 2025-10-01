@@ -1,7 +1,7 @@
 <template>
-	<section class="card palette-bg-white">
-		<slot />
-	</section>
+  <section class="card palette-bg-white">
+    <slot />
+  </section>
 </template>
 
 <script setup lang="ts"></script>

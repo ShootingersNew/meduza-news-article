@@ -1,7 +1,10 @@
 <template>
-  <p class="typography-text" :class="[sizeClass, toneClass, { 'typography-text--caption': isCaption }]">
-		<slot />
-	</p>
+  <p
+    class="typography-text"
+    :class="[sizeClass, toneClass, { 'typography-text--caption': isCaption }]"
+  >
+    <slot />
+  </p>
 </template>
 
 <script setup lang="ts">
@@ -32,7 +35,9 @@ const sizeClass = computed(() => {
   }
 })
 
-const toneClass = computed(() => (props.size === 'caption' ? 'palette-color-secondary' : 'palette-color-primary'))
+const toneClass = computed(() =>
+  props.size === 'caption' ? 'palette-color-secondary' : 'palette-color-primary',
+)
 const isCaption = computed(() => props.size === 'caption')
 </script>
 
