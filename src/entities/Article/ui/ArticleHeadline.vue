@@ -3,19 +3,12 @@
     <TypographyHeading :level="1" class="article-headline__title">
       {{ article.title }}
     </TypographyHeading>
-    <TypographyText
-      v-if="article.subtitle"
-      size="medium"
-      class="article-headline__subtitle palette-color-secondary"
-    >
-      {{ article.subtitle }}
-    </TypographyText>
   </header>
 </template>
 
 <script setup lang="ts">
 import type { Article } from '../model/types'
-import { TypographyHeading, TypographyText } from '@/shared/ui'
+import { TypographyHeading } from '@/shared/ui'
 
 defineProps<{
   readonly article: Article
