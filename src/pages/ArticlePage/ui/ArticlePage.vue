@@ -6,7 +6,12 @@
         <ArticleMetaWidget v-if="article" :article="article" />
         <ArticleContentWidget v-if="article" :article="article" />
 
-        <div v-if="isLoading" class="article-page__placeholder">Загружаем материал…</div>
+        <div
+          v-if="isLoading"
+          class="article-page__placeholder palette-color-secondary palette-bg-white"
+        >
+          Загружаем материал…
+        </div>
       </div>
     </template>
 
@@ -50,8 +55,7 @@ onMounted(async () => {
 .article-page__placeholder {
   padding: 24px;
   text-align: center;
-  color: #6e6e6e;
-  border: 1px dashed #d78e39;
+  border: 1px dashed currentColor;
   border-radius: 12px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <component :is="tag" class="typography-heading" :class="levelClass">
-    <slot />
-  </component>
+	<component :is="tag" class="typography-heading palette-color-primary" :class="headingClass">
+		<slot />
+	</component>
 </template>
 
 <script setup lang="ts">
@@ -20,7 +20,19 @@ const props = withDefaults(
   },
 )
 
-const levelClass = computed(() => `typography-heading--h${props.level}`)
+const headingClass = computed(() => {
+  switch (props.level) {
+    case 1:
+      return 'title-main'
+    case 2:
+      return 'title-sub'
+    case 3:
+      return 'title-small'
+    case 4:
+    default:
+      return 'text-medium'
+  }
+})
 const tag = computed(() => props.tag ?? `h${props.level}`)
 </script>
 
@@ -28,25 +40,5 @@ const tag = computed(() => props.tag ?? `h${props.level}`)
 .typography-heading {
   font-weight: 700;
   margin: 0;
-}
-
-.typography-heading--h1 {
-  font-size: 52px;
-  line-height: 1.1;
-}
-
-.typography-heading--h2 {
-  font-size: 39px;
-  line-height: 1.1;
-}
-
-.typography-heading--h3 {
-  font-size: 30px;
-  line-height: 1.15;
-}
-
-.typography-heading--h4 {
-  font-size: 24px;
-  line-height: 1.2;
 }
 </style>

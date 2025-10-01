@@ -22,6 +22,5 @@ const { article } = props
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: #000;
 }
 </style>

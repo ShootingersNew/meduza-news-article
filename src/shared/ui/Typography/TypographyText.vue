@@ -1,7 +1,7 @@
 <template>
-  <p class="typography-text" :class="sizeClass">
-    <slot />
-  </p>
+  <p class="typography-text" :class="[sizeClass, toneClass, { 'typography-text--caption': isCaption }]">
+		<slot />
+	</p>
 </template>
 
 <script setup lang="ts">
@@ -18,30 +18,31 @@ const props = withDefaults(
   },
 )
 
-const sizeClass = computed(() => `typography-text--${props.size}`)
+const sizeClass = computed(() => {
+  switch (props.size) {
+    case 'medium':
+      return 'text-medium'
+    case 'small':
+      return 'text-small'
+    case 'caption':
+      return 'text-smallest'
+    case 'default':
+    default:
+      return 'text-default'
+  }
+})
+
+const toneClass = computed(() => (props.size === 'caption' ? 'palette-color-secondary' : 'palette-color-primary'))
+const isCaption = computed(() => props.size === 'caption')
 </script>
 
 <style scoped>
 .typography-text {
   margin: 0;
-  color: #000;
   line-height: 1.5;
 }
 
-.typography-text--default {
-  font-size: 22px;
-}
-
-.typography-text--medium {
-  font-size: 18px;
-}
-
-.typography-text--small {
-  font-size: 16px;
-}
-
 .typography-text--caption {
-  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

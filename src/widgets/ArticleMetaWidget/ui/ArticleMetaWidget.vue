@@ -1,7 +1,7 @@
 <template>
   <CardContainer class="article-meta-widget">
     <ArticleMetaInfo :article="article" />
-    <ToolbarContainer>
+    <ToolbarContainer class="palette-color-secondary">
       <AudioPlayerButton />
       <BookmarkButton />
     </ToolbarContainer>

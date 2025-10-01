@@ -1,7 +1,7 @@
 <template>
-  <span class="icon" :aria-label="name">
-    <slot>{{ computedLabel }}</slot>
-  </span>
+	<span class="icon palette-bg-primary palette-color-white" :aria-label="name">
+		<slot>{{ computedLabel }}</slot>
+	</span>
 </template>
 
 <script setup lang="ts">
@@ -22,8 +22,6 @@ const computedLabel = computed(() => props.name.slice(0, 2).toUpperCase())
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #000;
-  color: #fff;
   font-size: 14px;
   text-transform: uppercase;
 }

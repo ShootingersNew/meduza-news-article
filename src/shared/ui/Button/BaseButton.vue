@@ -2,7 +2,7 @@
   <button
     class="base-button"
     :type="type"
-    :class="[`base-button--${variant}`, { 'base-button--block': block }]"
+    :class="[...buttonClasses, { 'base-button--block': block }]"
     @click="handleClick"
   >
     <slot />
@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 const props = withDefaults(
   defineProps<{
     readonly variant?: 'primary' | 'ghost'
@@ -29,39 +31,46 @@ const handleClick = (event: MouseEvent) => {
   emit('click', event)
 }
 
-const { variant, type, block } = props
+const { type, block } = props
+
+const buttonClasses = computed(() => {
+  if (props.variant === 'ghost') {
+    return ['base-button--ghost', 'palette-color-firm']
+  }
+
+  return ['base-button--primary', 'palette-bg-firm', 'palette-color-primary']
+})
 </script>
 
 <style scoped>
 .base-button {
-  border: none;
+  border: 1px solid transparent;
   border-radius: 24px;
   padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    opacity 0.2s ease;
   font-weight: 600;
 }
 
 .base-button--primary {
-  background-color: #d78e39;
-  color: #000;
+  border-color: transparent;
 }
 
 .base-button--primary:hover {
-  background-color: #e19c4b;
+  opacity: 0.9;
 }
 
 .base-button--ghost {
   background-color: transparent;
-  color: #d78e39;
-  border: 1px solid #d78e39;
+  border-color: currentColor;
 }
 
 .base-button--ghost:hover {
-  background-color: rgba(215, 142, 57, 0.1);
+  opacity: 0.8;
 }
 
 .base-button--block {

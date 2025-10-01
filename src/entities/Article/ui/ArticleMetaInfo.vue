@@ -1,5 +1,5 @@
 <template>
-  <div class="article-meta">
+  <div class="article-meta palette-color-secondary">
     <TypographyText size="caption" class="article-meta__date">
       {{ formattedDate }}
     </TypographyText>
@@ -21,9 +21,9 @@ const props = defineProps<{
   readonly article: Article
 }>()
 
-const { article } = props
+const article = computed(() => props.article)
 
-const formattedDate = computed(() => formatDate(article.publishedAt))
+const formattedDate = computed(() => formatDate(article.value.publishedAt))
 </script>
 
 <style scoped>
@@ -31,7 +31,6 @@ const formattedDate = computed(() => formatDate(article.publishedAt))
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  color: #6e6e6e;
 }
 
 .article-meta__date,

@@ -1,8 +1,8 @@
 <template>
-  <div class="author-badge">
-    <strong class="author-badge__name">{{ author.name }}</strong>
-    <span v-if="author.position" class="author-badge__position">{{ author.position }}</span>
-  </div>
+	<div class="author-badge palette-color-secondary">
+		<strong class="author-badge__name text-small">{{ author.name }}</strong>
+		<span v-if="author.position" class="author-badge__position text-smallest">{{ author.position }}</span>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -20,16 +20,10 @@ const { author } = props
   display: flex;
   flex-direction: column;
   gap: 4px;
-  color: #6e6e6e;
 }
 
-.author-badge__name {
-  font-size: 16px;
-  line-height: 1.2;
-}
-
+.author-badge__name,
 .author-badge__position {
-  font-size: 14px;
   line-height: 1.2;
 }
 </style>
