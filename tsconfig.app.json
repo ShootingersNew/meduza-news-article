@@ -1,0 +1,18 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "remotes.d.ts"],
+  "exclude": ["src/**/__tests__/*"],
+  "files": ["remotes.d.ts"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "composite": true,
+    "moduleResolution": "bundler",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "baseUrl": ".",
+    "types": ["vite/client", "vue", "vue-router", "vue-i18n"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "meduza-pet-ui-kit": ["node_modules/meduza-pet-ui-kit/dist/types"]
+    }
+  }
+}
