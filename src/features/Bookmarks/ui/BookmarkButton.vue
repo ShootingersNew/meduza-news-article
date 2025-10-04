@@ -1,14 +1,16 @@
 <template>
-  <BaseButton :variant="isBookmarked ? 'ghost' : 'primary'" @click="toggle">
-    {{ isBookmarked ? 'В закладках' : 'Добавить в закладки' }}
+  <BaseButton @click="toggle">
+    {{ isBookmarked ? t('bookmarks.saved') : t('bookmarks.save') }}
   </BaseButton>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { BaseButton } from '@/shared/ui'
 
+const { t } = useI18n()
 const isBookmarked = ref(false)
 
 const toggle = () => {

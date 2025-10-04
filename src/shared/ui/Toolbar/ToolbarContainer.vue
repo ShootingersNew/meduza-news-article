@@ -9,8 +9,7 @@
 <style scoped>
 .toolbar {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 50px;
   align-items: center;
 }
 </style>

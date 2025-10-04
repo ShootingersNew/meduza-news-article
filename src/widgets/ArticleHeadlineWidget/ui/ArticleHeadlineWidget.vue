@@ -18,6 +18,7 @@ const { article } = props
 
 <style scoped>
 .article-headline-widget {
+  padding: 24px;
   gap: 20px;
 }
 </style>

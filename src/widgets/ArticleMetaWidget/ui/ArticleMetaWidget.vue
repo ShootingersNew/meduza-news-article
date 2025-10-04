@@ -4,6 +4,7 @@
     <ToolbarContainer class="palette-color-secondary">
       <AudioPlayerButton />
       <BookmarkButton />
+      <TopicSubscriptionButton />
     </ToolbarContainer>
   </CardContainer>
 </template>
@@ -11,9 +12,8 @@
 <script setup lang="ts">
 import type { Article } from '@/entities/Article'
 import { ArticleMetaInfo } from '@/entities/Article'
-import { AudioPlayerButton, BookmarkButton } from '@/features'
+import { AudioPlayerButton, BookmarkButton, TopicSubscriptionButton } from '@/features'
 import { CardContainer, ToolbarContainer } from '@/shared/ui'
-
 const props = defineProps<{
   readonly article: Article
 }>()
@@ -23,6 +23,10 @@ const { article } = props
 
 <style scoped>
 .article-meta-widget {
-  gap: 16px;
+  padding: 16px 24px;
+  gap: 50px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
 }
 </style>

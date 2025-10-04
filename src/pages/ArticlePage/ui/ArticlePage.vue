@@ -10,7 +10,7 @@
           v-if="isLoading"
           class="article-page__placeholder palette-color-secondary palette-bg-white"
         >
-          Загружаем материал…
+          {{ t('articlePage.loading') }}
         </div>
       </div>
     </template>
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { TopicAdditionalsTemplate } from 'meduza-pet-ui-kit'
 
 import { mapArticleDtoToArticle, type Article } from '@/entities/Article'
@@ -34,6 +35,7 @@ import {
 } from '@/widgets'
 import { articleApi } from '@/shared/api/articleApi'
 
+const { t } = useI18n()
 const article = ref<Article | null>(null)
 const isLoading = ref(true)
 
@@ -49,7 +51,7 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 32px 16px;
+  padding: 52px 0;
 }
 
 .article-page__placeholder {
