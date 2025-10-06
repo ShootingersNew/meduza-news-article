@@ -1,4 +1,4 @@
-export type { Article } from './model/types'
+export type { Article, ArticlePreview } from './model/types'
 export { mapArticleDtoToArticle } from './model/mappers'
 export { default as ArticleHeadline } from './ui/ArticleHeadline.vue'
 export { default as ArticleMetaInfo } from './ui/ArticleMetaInfo.vue'

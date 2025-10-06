@@ -4,6 +4,11 @@ export interface AuthorDto {
 	readonly position?: string
 }
 
+export interface TopicDto {
+	readonly id: string
+	readonly name: string
+}
+
 export interface ArticleDto {
 	readonly id: string
 	readonly title: string
@@ -12,6 +17,7 @@ export interface ArticleDto {
 	readonly source: string
 	readonly content: readonly string[]
 	readonly author: AuthorDto
+	readonly topic?: TopicDto
 }
 
 const stubArticle: ArticleDto = {
@@ -19,6 +25,10 @@ const stubArticle: ArticleDto = {
 	title: 'В Петербурге по делу о наркотиках задержан глава представительства Чечни Ислам Хизриев. Его отправили под домашний арест',
 	publishedAt: '2021-10-29T11:16:00+03:00',
 	source: '47 news',
+	topic: {
+		id: 'kemerovo-fire',
+		name: 'Пожар в зимней вишне',
+	},
 	content: [
 		'29 октября суд Заводского района Кемерово огласил приговор по первому делу о пожаре в торговом центре «Зимняя вишня», сообщает «Интерфакс».',
 		'Самый большой срок получила гендиректор компании-владельца ТЦ Юлия Богданова, которую приговорили к 14 годам лишения свободы. Управляющую «Зимней вишней» Надежду Судденок приговорили к 13 с половиной годам колонии. Техническому директору ТЦ Георгию Соболеву назначили наказание в виде 11 лет лишения свободы. Охранника ТЦ Сергея Антюшина приговорили к восьми годам колонии.',

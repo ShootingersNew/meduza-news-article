@@ -6,6 +6,13 @@
         <ArticleMetaWidget :article="article" />
         <ArticleContentWidget :article="article" />
 
+        <RelatedArticlesWidget
+          v-if="article.topic"
+          :topic-id="article.topic.id"
+          :topic-name="article.topic.name"
+          class="article-page__related-section"
+        />
+
         <div
           v-if="isLoading"
           class="article-page__placeholder palette-color-secondary palette-bg-white"
@@ -19,7 +26,9 @@
         <div></div>
       </template>
 
-      <template #additionalsSecondary> Второстепенный дополнительный контент </template>
+      <template #additionalsSecondary>
+        <RecommendedArticlesWidget />
+      </template>
 
       <template #additionalsFooter> Футер дополнительного контента </template>
     </TopicAdditionalsTemplate>
@@ -36,6 +45,8 @@ import {
   ArticleHeadlineWidget,
   ArticleMetaWidget,
   ArticleShareWidget,
+  RelatedArticlesWidget,
+  RecommendedArticlesWidget,
 } from '@/widgets'
 import { articleApi } from '@/shared/api/articleApi'
 import { TopicAdditionalsTemplate } from '@/shared/ui'
@@ -55,6 +66,11 @@ onMounted(async () => {
 .article-page {
   display: flex;
   flex-direction: column;
+}
+
+.article-page__related-section {
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 
 .article-page__placeholder {

@@ -7,4 +7,10 @@ export const mapArticleDtoToArticle = (dto: ArticleDto): Article => ({
 	publishedAt: dto.publishedAt,
 	source: dto.source,
 	content: dto.content,
+	topic: dto.topic
+		? {
+				id: dto.topic.id,
+				name: dto.topic.name,
+			}
+		: undefined,
 })

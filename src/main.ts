@@ -2,12 +2,17 @@ import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
 
 import App from './App.vue'
+import ruMessages from './shared/config/i18n/ru'
+import enMessages from './shared/config/i18n/en'
 
 const createLocalI18n = () =>
 	createI18n({
 		locale: 'ru',
 		fallbackLocale: 'en',
-		messages: {},
+		messages: {
+			ru: ruMessages,
+			en: enMessages,
+		},
 		legacy: false,
 		globalInjection: true,
 	})
