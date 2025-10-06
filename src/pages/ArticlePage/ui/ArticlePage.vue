@@ -1,10 +1,10 @@
 <template>
-  <TopicAdditionalsTemplate>
-    <template #default>
-      <div class="article-page">
-        <ArticleHeadlineWidget v-if="article" :article="article" />
-        <ArticleMetaWidget v-if="article" :article="article" />
-        <ArticleContentWidget v-if="article" :article="article" />
+  <div class="article-page">
+    <TopicAdditionalsTemplate v-if="article">
+      <template #default>
+        <ArticleHeadlineWidget :article="article" />
+        <ArticleMetaWidget :article="article" />
+        <ArticleContentWidget :article="article" />
 
         <div
           v-if="isLoading"
@@ -12,19 +12,23 @@
         >
           {{ t('articlePage.loading') }}
         </div>
-      </div>
-    </template>
+        <ArticleShareWidget />
+      </template>
 
-    <template #additionalsFooter>
-      <ArticleShareWidget />
-    </template>
-  </TopicAdditionalsTemplate>
+      <template #additionalsMain>
+        <div></div>
+      </template>
+
+      <template #additionalsSecondary> Второстепенный дополнительный контент </template>
+
+      <template #additionalsFooter> Футер дополнительного контента </template>
+    </TopicAdditionalsTemplate>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { TopicAdditionalsTemplate } from 'meduza-pet-ui-kit'
 
 import { mapArticleDtoToArticle, type Article } from '@/entities/Article'
 import {
@@ -34,6 +38,7 @@ import {
   ArticleShareWidget,
 } from '@/widgets'
 import { articleApi } from '@/shared/api/articleApi'
+import { TopicAdditionalsTemplate } from '@/shared/ui'
 
 const { t } = useI18n()
 const article = ref<Article | null>(null)
@@ -50,8 +55,6 @@ onMounted(async () => {
 .article-page {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 52px 0;
 }
 
 .article-page__placeholder {

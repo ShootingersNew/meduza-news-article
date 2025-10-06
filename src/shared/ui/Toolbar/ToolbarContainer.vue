@@ -11,5 +11,6 @@
   display: flex;
   gap: 50px;
   align-items: center;
+  line-height: 19px;
 }
 </style>

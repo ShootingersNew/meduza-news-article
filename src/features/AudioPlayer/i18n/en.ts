@@ -1,6 +1,6 @@
 export default {
   audioPlayer: {
-    play: 'Listen',
+    play: 'Listen to the news',
     pause: 'Pause',
     playing: 'Playing...',
   },

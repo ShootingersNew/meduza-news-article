@@ -11,11 +11,19 @@ export const formatDate = (value: string | number | Date, options: FormatDateOpt
 
 	const { locales = 'ru-RU' } = options
 
-	return new Intl.DateTimeFormat(locales, {
+	const formatter = new Intl.DateTimeFormat(locales, {
 		year: 'numeric',
 		month: 'long',
-		day: '2-digit',
+		day: 'numeric',
+	})
+
+	const timeFormatter = new Intl.DateTimeFormat(locales, {
 		hour: '2-digit',
 		minute: '2-digit',
-	}).format(date)
+	})
+
+	const datePart = formatter.format(date).replace(' г.', '')
+	const timePart = timeFormatter.format(date)
+
+	return `${timePart} ${datePart}`
 }

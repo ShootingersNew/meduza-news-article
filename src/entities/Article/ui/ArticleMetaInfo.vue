@@ -1,10 +1,13 @@
 <template>
-  <div class="article-meta palette-color-secondary">
-    <TypographyText size="caption" class="article-meta__date">
+  <div class="article-meta palette-color-primary">
+    <TypographyText size="medium" class="article-meta__date">
       {{ formattedDate }}
     </TypographyText>
-    <TypographyText size="caption" class="article-meta__source">
-      {{ t('articleMeta.source') }}: {{ article.source }}
+    <TypographyText size="medium" class="article-meta__source">
+      <span class="article-meta__source-label palette-color-secondary">{{
+        t('articleMeta.source')
+      }}</span
+      >: <span class="article-meta__source-value">{{ article.source }}</span>
     </TypographyText>
   </div>
 </template>
@@ -36,8 +39,6 @@ const formattedDate = computed(() => formatDate(article.value.publishedAt))
   flex-wrap: wrap;
 }
 
-.article-meta__date,
-.article-meta__source {
-  text-transform: uppercase;
+.article-meta__source-label {
 }
 </style>

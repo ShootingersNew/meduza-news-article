@@ -1,5 +1,5 @@
 <template>
-  <BaseButton @click="subscribe">
+  <BaseButton @click="subscribe" :type="ButtonType.Firm">
     {{ isSubscribed ? t('topicSubscription.subscribed') : t('topicSubscription.subscribe') }}
   </BaseButton>
 </template>
@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { BaseButton } from '@/shared/ui'
+import { BaseButton, ButtonType } from '@/shared/ui'
 
 const { t } = useI18n()
 const isSubscribed = ref(false)

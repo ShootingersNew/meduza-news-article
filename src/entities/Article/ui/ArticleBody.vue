@@ -1,6 +1,11 @@
 <template>
   <div class="article-body">
-    <TypographyText v-for="paragraph in article.content" :key="paragraph">
+    <TypographyText
+      size="large"
+      class="article-body__paragraph"
+      v-for="paragraph in article.content"
+      :key="paragraph"
+    >
       {{ paragraph }}
     </TypographyText>
   </div>
@@ -22,5 +27,9 @@ const { article } = props
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.article-body__paragraph {
+  padding-left: 49px;
+  padding-right: 51px;
 }
 </style>

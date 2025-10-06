@@ -1,24 +1,24 @@
 <template>
-  <CardContainer class="article-share-widget">
-    <TypographyHeading :level="3">{{ t('articleShare.title') }}</TypographyHeading>
+  <ArticleBar class="article-share-widget">
+    <span class="article-share-widget__title" role="text">
+      {{ t('articleShare.title') }}
+    </span>
     <ToolbarContainer>
-      <BaseButton v-for="network in networks" :key="network.id" @click="handleShare(network.id)">
-        <IconPlaceholder :name="network.id" />
+      <BaseButton
+        v-for="network in networks"
+        :key="network.id"
+        class="article-share-widget__button palette-color-blue"
+        @click="handleShare(network.id)"
+      >
         <span class="article-share-widget__label">{{ t(network.labelKey) }}</span>
       </BaseButton>
     </ToolbarContainer>
-  </CardContainer>
+  </ArticleBar>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import {
-  BaseButton,
-  CardContainer,
-  IconPlaceholder,
-  ToolbarContainer,
-  TypographyHeading,
-} from '@/shared/ui'
+import { BaseButton, ArticleBar, ToolbarContainer } from '@/shared/ui'
 
 const { t } = useI18n()
 
@@ -39,13 +39,4 @@ const handleShare = (networkId: string) => {
 }
 </script>
 
-<style scoped>
-.article-share-widget {
-  padding: 20px 24px;
-  gap: 16px;
-}
-
-.article-share-widget__label {
-  margin-left: 8px;
-}
-</style>
+<style scoped></style>

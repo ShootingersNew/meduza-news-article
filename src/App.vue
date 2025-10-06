@@ -4,7 +4,6 @@
 
 <script setup lang="ts">
 import 'meduza-pet-ui-kit/styles'
-import 'meduza-pet-ui-kit/variables'
 
 import I18nService from 'host/I18nService'
 

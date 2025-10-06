@@ -18,7 +18,7 @@ const { article } = props
 
 <style scoped>
 .article-content-widget {
-  padding: 24px;
-  gap: 20px;
+  padding-bottom: 39px;
+  padding-top: 36px;
 }
 </style>

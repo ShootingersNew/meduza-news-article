@@ -1,6 +1,6 @@
 export default {
   bookmarks: {
-    save: 'Save',
-    saved: 'Saved',
+    save: 'Add to bookmarks',
+    saved: 'Added to bookmarks',
   },
 }
