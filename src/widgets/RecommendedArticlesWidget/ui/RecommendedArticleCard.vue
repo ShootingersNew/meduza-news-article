@@ -1,5 +1,5 @@
 <template>
-  <article class="recommended-article-card">
+  <CardContainer tag="article" class="recommended-article-card">
     <div v-if="article.imageUrl" class="recommended-article-card__image-container">
       <img :src="article.imageUrl" :alt="article.title" class="recommended-article-card__image" />
     </div>
@@ -13,14 +13,14 @@
         {{ formattedDate }}
       </TypographyText>
     </div>
-  </article>
+  </CardContainer>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 
 import type { ArticlePreview } from '@/entities/Article'
-import { TypographyText } from '@/shared/ui'
+import { CardContainer, TypographyText } from '@/shared/ui'
 import { formatDate } from '@/shared/lib/formatDate'
 
 interface Props {
@@ -35,11 +35,13 @@ const formattedDate = computed(() => formatDate(props.article.publishedAt))
 <style scoped>
 .recommended-article-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: var(--palette-color-gray-10);
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+  height: 350px;
+  width: 100%;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -51,9 +53,8 @@ const formattedDate = computed(() => formatDate(props.article.publishedAt))
 }
 
 .recommended-article-card__image-container {
-  width: 100%;
+  width: 350px;
   aspect-ratio: 16 / 9;
-  overflow: hidden;
   background: var(--palette-color-gray-20);
 }
 
@@ -67,7 +68,7 @@ const formattedDate = computed(() => formatDate(props.article.publishedAt))
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 16px;
+  padding: 40px 50px 41px 49px;
 }
 
 .recommended-article-card__title {

@@ -1,10 +1,6 @@
 <template>
   <section class="recommended-articles-widget">
-    <header class="recommended-articles-widget__header">
-      <TypographyHeading :level="2" size="small">
-        {{ t('recommendedArticles.title') }}
-      </TypographyHeading>
-    </header>
+    <SectionHeader :title="t('recommendedArticles.title')" :level="2" />
 
     <div v-if="isLoading" class="recommended-articles-widget__loading">
       <TypographyText>{{ t('common.loading') }}</TypographyText>
@@ -23,7 +19,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { TypographyHeading, TypographyText } from '@/shared/ui'
+import { SectionHeader, TypographyText } from '@/shared/ui'
 import { useRecommendedArticles } from '../model/useRecommendedArticles'
 import RecommendedArticleCard from './RecommendedArticleCard.vue'
 
@@ -35,19 +31,11 @@ const { articles, isLoading, error } = useRecommendedArticles()
 .recommended-articles-widget {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.recommended-articles-widget__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .recommended-articles-widget__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
 }
 
 @media (max-width: 768px) {

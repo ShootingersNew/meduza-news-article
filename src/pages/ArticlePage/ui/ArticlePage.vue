@@ -5,7 +5,7 @@
         <ArticleHeadlineWidget :article="article" />
         <ArticleMetaWidget :article="article" />
         <ArticleContentWidget :article="article" />
-
+        <ArticleShareWidget />
         <RelatedArticlesWidget
           v-if="article.topic"
           :topic-id="article.topic.id"
@@ -19,7 +19,6 @@
         >
           {{ t('articlePage.loading') }}
         </div>
-        <ArticleShareWidget />
       </template>
 
       <template #additionalsMain>
@@ -69,8 +68,8 @@ onMounted(async () => {
 }
 
 .article-page__related-section {
-  margin-top: 48px;
-  margin-bottom: 48px;
+  /* margin-top: 48px;
+  margin-bottom: 48px; */
 }
 
 .article-page__placeholder {

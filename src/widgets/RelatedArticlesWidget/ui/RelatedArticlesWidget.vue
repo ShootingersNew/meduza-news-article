@@ -1,13 +1,12 @@
 <template>
   <section class="related-articles-widget">
-    <div class="related-articles-widget__header">
-      <TypographyHeading :level="2" size="small" class="palette-color-primary">
-        {{ t('relatedArticles.title', { topic: topicName }) }}
-      </TypographyHeading>
-      <BaseButton size="small" @click="handleViewAll">
-        {{ t('relatedArticles.viewAll') }}
-      </BaseButton>
-    </div>
+    <SectionHeader :title="t('relatedArticles.title', { topic: topicName })">
+      <template #action>
+        <BaseButton size="small" class="palette-color-blue" @click="handleViewAll">
+          {{ t('relatedArticles.viewAll') }}
+        </BaseButton>
+      </template>
+    </SectionHeader>
 
     <div v-if="isLoading" class="related-articles-widget__loading palette-color-secondary">
       Загрузка...
@@ -26,7 +25,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import { TypographyHeading, BaseButton } from '@/shared/ui'
+import { SectionHeader, BaseButton } from '@/shared/ui'
 import { useRelatedArticles } from '../model/useRelatedArticles'
 import RelatedArticleCard from './RelatedArticleCard.vue'
 
@@ -48,21 +47,15 @@ const handleViewAll = () => {
 .related-articles-widget {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.related-articles-widget__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .related-articles-widget__list {
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  padding-bottom: 8px;
   scroll-snap-type: x mandatory;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .related-articles-widget__list > * {

@@ -16,9 +16,4 @@ const props = defineProps<{
 const { article } = props
 </script>
 
-<style scoped>
-.article-headline-widget {
-  padding: 52px 50px 31px 47px;
-  gap: 20px;
-}
-</style>
+<style scoped></style>

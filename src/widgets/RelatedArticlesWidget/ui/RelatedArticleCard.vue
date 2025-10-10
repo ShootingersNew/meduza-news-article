@@ -1,5 +1,5 @@
 <template>
-  <article class="related-article-card">
+  <CardContainer tag="article" class="related-article-card">
     <a :href="`/article/${article.id}`" class="related-article-card__link">
       <TypographyText class="related-article-card__title palette-color-primary">
         {{ article.title }}
@@ -8,14 +8,14 @@
         {{ formattedDate }}
       </TypographyText>
     </a>
-  </article>
+  </CardContainer>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 
 import type { ArticlePreview } from '@/entities/Article'
-import { TypographyText } from '@/shared/ui'
+import { CardContainer, TypographyText } from '@/shared/ui'
 import { formatDate } from '@/shared/lib/formatDate'
 
 const props = defineProps<{
@@ -28,15 +28,13 @@ const formattedDate = computed(() => formatDate(props.article.publishedAt))
 <style scoped>
 .related-article-card {
   min-width: 280px;
-  max-width: 320px;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: #f5f5f5;
-  transition: background-color 0.2s ease;
-}
+  padding: 40px 49px;
 
-.related-article-card:hover {
-  background-color: #ebebeb;
+  transition: background-color 0.2s ease;
+  height: 339px;
+}
+.related-article-card:not(:last-child) {
+  border-right: 1px solid #dcdcdc;
 }
 
 .related-article-card__link {
@@ -44,6 +42,8 @@ const formattedDate = computed(() => formatDate(props.article.publishedAt))
   display: flex;
   flex-direction: column;
   gap: 8px;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .related-article-card__title {

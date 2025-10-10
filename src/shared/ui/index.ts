@@ -4,3 +4,4 @@ export { CardContainer, TypographyHeading, TypographyText, TopicAdditionalsTempl
 export * from './Icon'
 export * from './Toolbar'
 export * from './ArticleBar'
+export { default as SectionHeader } from './SectionHeader/SectionHeader.vue'
